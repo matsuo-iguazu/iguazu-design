@@ -2,6 +2,14 @@
 name: IGUAZU
 description: 株式会社イグアスのデザインシステム — IBMパートナーのIT企業として、信頼性・専門性・先進性を体現するビジュアルアイデンティティ
 version: alpha
+logo:
+  primary: "./assets/logo.svg"
+  url: "https://raw.githubusercontent.com/matsuo-iguazu/iguazu-design/main/assets/logo.svg"
+  usage:
+    backgrounds: ["#FFFFFF", "#0077C8"]
+    min-width: "120px"
+    clear-space: "ロゴ高さ×1の余白"
+    dont: ["変形", "回転", "色変更", "背景色なし適用"]
 colors:
   primary: "#0077C8"
   primary-dark: "#005A96"
