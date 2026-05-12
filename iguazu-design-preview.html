@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGUAZU — DESIGN.md デザインプレビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ig-primary: #0077C8;
+  --ig-primary-dark: #005A96;
+  --ig-primary-light: #E8F4FC;
+  --ig-text-primary: #1A1A1A;
+  --ig-text-secondary: #555555;
+  --ig-text-muted: #888888;
+  --ig-surface: #FFFFFF;
+  --ig-surface-gray: #F5F5F5;
+  --ig-border: #DDDDDD;
+  --ff: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, sans-serif;
+}
+
+body {
+  font-family: var(--ff);
+  background: #EBEBEB;
+  color: var(--ig-text-primary);
+  padding: 40px 24px;
+  min-height: 100vh;
+}
+
+.page-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Page Title ── */
+.page-title-area {
+  margin-bottom: 40px;
+}
+.page-title-area .eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--ig-primary);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.page-title-area h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ig-text-primary);
+  margin-bottom: 6px;
+}
+.page-title-area .subtitle {
+  font-size: 14px;
+  color: var(--ig-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Section Label ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ig-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Block card ── */
+.block {
+  background: var(--ig-surface);
+  border: 1px solid var(--ig-border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.block-note {
+  font-size: 11px;
+  color: var(--ig-text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ig-border);
+}
+
+/* ── 1. Colors ── */
+.color-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.swatch-dot {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.swatch-name {
+  font-size: 11px;
+  color: var(--ig-text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.swatch-hex {
+  font-size: 10px;
+  color: var(--ig-text-muted);
+  font-family: 'Helvetica Neue', monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ── 2. Typography ── */
+.type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  border-bottom: 1px solid var(--ig-border);
+  padding: 12px 0;
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta {
+  font-size: 10px;
+  color: var(--ig-text-muted);
+  font-family: 'Helvetica Neue', monospace;
+  white-space: nowrap;
+  min-width: 160px;
+  line-height: 1.6;
+}
+.t-display { font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: 0.02em; }
+.t-h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.4; letter-spacing: 0.02em; }
+.t-h2 { font-size: 1.375rem; font-weight: 700; line-height: 1.5; letter-spacing: 0.02em; }
+.t-h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.6; letter-spacing: 0.02em; }
+.t-body { font-size: 0.9375rem; font-weight: 400; line-height: 1.8; letter-spacing: 0.04em; color: var(--ig-text-secondary); }
+.t-caption { font-size: 0.75rem; font-weight: 400; line-height: 1.7; letter-spacing: 0.04em; color: var(--ig-text-muted); }
+.t-en-label { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.14em; color: var(--ig-primary); font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+/* ── 3. Buttons & Tags ── */
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+.btn-primary {
+  background: var(--ig-primary); color: #fff; border: none;
+  border-radius: 4px; padding: 12px 32px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.06em;
+  cursor: pointer; font-family: var(--ff); transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--ig-primary-dark); }
+.btn-secondary {
+  background: transparent; color: var(--ig-primary);
+  border: 1px solid var(--ig-primary); border-radius: 4px; padding: 11px 31px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.06em;
+  cursor: pointer; font-family: var(--ff); transition: background 0.2s;
+}
+.btn-secondary:hover { background: var(--ig-primary-light); }
+.a-text {
+  color: var(--ig-primary); font-size: 14px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.04em;
+}
+.a-text:hover { text-decoration: underline; }
+.divider { border: none; border-top: 1px solid var(--ig-border); margin: 4px 0 16px; }
+.tag {
+  display: inline-block;
+  background: var(--ig-primary-light); color: var(--ig-primary-dark);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  padding: 3px 10px; border-radius: 2px;
+}
+.tag-gray { background: var(--ig-surface-gray); color: var(--ig-text-secondary); }
+.tags-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ── 4. Navigation ── */
+.nav-mock {
+  background: var(--ig-surface);
+  border-bottom: 1px solid var(--ig-border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 60px;
+  border-radius: 8px 8px 0 0;
+}
+.nav-logo {
+  font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--ig-primary); font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-link { font-size: 13px; color: var(--ig-text-secondary); text-decoration: none; letter-spacing: 0.04em; }
+.nav-link.active { color: var(--ig-primary); border-bottom: 2px solid var(--ig-primary); padding-bottom: 2px; font-weight: 600; }
+.nav-sub { background: var(--ig-surface-gray); padding: 12px 24px; border-radius: 0 0 8px 8px; }
+.nav-sub p { font-size: 11px; color: var(--ig-text-muted); letter-spacing: 0.04em; }
+
+/* ── 5. Section Heading ── */
+.section-heading-accent {
+  border-left: 4px solid var(--ig-primary);
+  padding-left: 16px;
+  border-radius: 0;
+}
+.section-heading-accent .en {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: var(--ig-primary);
+  font-family: 'Helvetica Neue', Arial, sans-serif; display: block; margin-bottom: 4px;
+}
+.section-heading-accent .ja {
+  font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ig-text-primary); display: block;
+}
+.headings-row { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+
+/* ── 6. News Card ── */
+.news-card {
+  background: var(--ig-surface); border: 1px solid var(--ig-border);
+  border-radius: 8px; padding: 18px 20px; margin-bottom: 10px;
+}
+.news-card:last-child { margin-bottom: 0; }
+.news-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.news-date { font-size: 12px; color: var(--ig-text-muted); font-family: 'Helvetica Neue', Arial, sans-serif; letter-spacing: 0.06em; }
+.news-title { font-size: 14px; font-weight: 600; line-height: 1.6; letter-spacing: 0.03em; }
+
+/* ── 7. CTA Block ── */
+.cta-block {
+  background: var(--ig-primary); border-radius: 8px;
+  padding: 28px 32px; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.cta-text { color: #fff; }
+.cta-title { font-size: 1rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 4px; }
+.cta-sub { font-size: 12px; opacity: 0.82; letter-spacing: 0.04em; line-height: 1.6; }
+.btn-cta {
+  background: #fff; color: var(--ig-primary); border: none;
+  border-radius: 100px; padding: 11px 32px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+  cursor: pointer; font-family: var(--ff); white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.btn-cta:hover { opacity: 0.9; }
+
+/* ── 8. Hero ── */
+.hero-area {
+  background: linear-gradient(135deg, #0055A0 0%, #0077C8 60%, #1AABF0 100%);
+  padding: 40px 32px 36px; color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+.hero-label {
+  font-size: 11px; letter-spacing: 0.18em; opacity: 0.8;
+  font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 12px;
+}
+.hero-title { font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: 0.03em; margin-bottom: 14px; }
+.hero-sub { font-size: 14px; line-height: 1.8; opacity: 0.88; letter-spacing: 0.04em; max-width: 500px; }
+.hero-sub-note { background: var(--ig-surface-gray); padding: 12px 20px; border-radius: 0 0 8px 8px; }
+.hero-sub-note p { font-size: 11px; color: var(--ig-text-muted); letter-spacing: 0.04em; }
+
+/* ── 9. Spacing scale ── */
+.spacing-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+.spacing-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.spacing-bar { background: var(--ig-primary-light); border: 1px solid var(--ig-primary); border-radius: 3px; width: 24px; }
+.spacing-label { font-size: 10px; color: var(--ig-text-muted); font-family: 'Helvetica Neue', monospace; text-align: center; }
+
+/* ── Footer note ── */
+.footer-note {
+  margin-top: 8px; padding: 20px 24px;
+  border-radius: 8px; background: var(--ig-primary-light);
+  border-left: 4px solid var(--ig-primary);
+}
+.footer-note p { font-size: 13px; color: var(--ig-primary-dark); letter-spacing: 0.04em; line-height: 1.8; }
+.footer-note strong { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Page Title -->
+  <div class="page-title-area">
+    <p class="eyebrow">IGUAZU / DESIGN.md</p>
+    <h1>デザインプレビュー</h1>
+    <p class="subtitle">株式会社イグアスのデザイントークン参照ページ — AI エージェント・社内資料・Web 開発の共通リファレンス</p>
+  </div>
+
+  <!-- 1. Color Palette -->
+  <p class="section-label">1 — Color Palette</p>
+  <div class="block">
+    <div class="color-row">
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#0077C8;"></div>
+        <div class="swatch-name">Primary</div>
+        <div class="swatch-hex">#0077C8</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#005A96;"></div>
+        <div class="swatch-name">Prim. Dark</div>
+        <div class="swatch-hex">#005A96</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#E8F4FC; border:1px solid #C5DDEF;"></div>
+        <div class="swatch-name">Prim. Light</div>
+        <div class="swatch-hex">#E8F4FC</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#1A1A1A;"></div>
+        <div class="swatch-name">Text Pri.</div>
+        <div class="swatch-hex">#1A1A1A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#555555;"></div>
+        <div class="swatch-name">Text Sec.</div>
+        <div class="swatch-hex">#555555</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#888888;"></div>
+        <div class="swatch-name">Muted</div>
+        <div class="swatch-hex">#888888</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#F5F5F5; border:1px solid #E0E0E0;"></div>
+        <div class="swatch-name">Surface</div>
+        <div class="swatch-hex">#F5F5F5</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#DDDDDD;"></div>
+        <div class="swatch-name">Border</div>
+        <div class="swatch-hex">#DDDDDD</div>
+      </div>
+    </div>
+    <p class="block-note">テーマカラー #0077C8（イグアスブルー）を軸に、IBM ブルーと調和する色調で構成。</p>
+  </div>
+
+  <!-- 2. Typography -->
+  <p class="section-label">2 — Typography</p>
+  <div class="block">
+    <div class="type-row">
+      <div class="type-meta">display<br>2rem / 700<br>ls: 0.02em</div>
+      <div class="t-display">新たな価値創造</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">h1<br>1.75rem / 700<br>ls: 0.02em</div>
+      <div class="t-h1">IT市場をナビゲート</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">h2<br>1.375rem / 700<br>ls: 0.02em</div>
+      <div class="t-h2">製品・ソリューション</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">h3<br>1.125rem / 600<br>ls: 0.02em</div>
+      <div class="t-h3">ディストリビューション事業</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">body<br>0.9375rem / 400<br>lh: 1.8 / ls: 0.04em</div>
+      <div class="t-body">イグアスはIBMのVAD事業を基盤に、新しく優れたIT製品・ソリューション・サービスを揃えて、専門性と最適な方法でお客様に提供します。</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">caption<br>0.75rem / 400<br>color: muted</div>
+      <div class="t-caption">2026/03/23 ・ お知らせ</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">en-label<br>0.8125rem / 500<br>Helvetica / ls: 0.14em</div>
+      <div class="t-en-label">BUSINESS &amp; PRODUCTS</div>
+    </div>
+    <p class="block-note">和文: Noto Sans JP → Hiragino Kaku Gothic ProN → Yu Gothic　欧文: Helvetica Neue → Arial<br>
+    font-feature-settings: "palt" 1, "kern" 1 を有効化</p>
+  </div>
+
+  <!-- 3. Buttons & Tags -->
+  <p class="section-label">3 — Buttons &amp; Tags</p>
+  <div class="block">
+    <p style="font-size:12px; color:var(--ig-text-muted); margin-bottom:14px; letter-spacing:0.04em;">ボタン</p>
+    <div class="btn-row">
+      <button class="btn-primary">お問い合わせ</button>
+      <button class="btn-secondary">詳細を見る</button>
+      <a class="a-text" href="#">もっと見る →</a>
+    </div>
+    <hr class="divider">
+    <p style="font-size:12px; color:var(--ig-text-muted); margin-bottom:12px; letter-spacing:0.04em;">タグ・バッジ</p>
+    <div class="tags-row">
+      <span class="tag">プレスリリース</span>
+      <span class="tag">お知らせ</span>
+      <span class="tag tag-gray">イベント・セミナー</span>
+      <span class="tag" style="background:#E8F4FC; color:#005A96;">IBM Champion</span>
+    </div>
+    <p class="block-note">プライマリボタン: #0077C8 地 / 角丸 4px　セカンダリ: ボーダー 1px　タグ: Primary Light 地 + Primary Dark テキスト</p>
+  </div>
+
+  <!-- 4. Navigation -->
+  <p class="section-label">4 — Navigation</p>
+  <div class="block" style="padding:0; overflow:hidden;">
+    <div class="nav-mock">
+      <div class="nav-logo">IGUAZU</div>
+      <div class="nav-links">
+        <a class="nav-link active">企業情報</a>
+        <a class="nav-link">製品・サービス</a>
+        <a class="nav-link">ニュース</a>
+        <a class="nav-link">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="nav-sub">
+      <p>白背景 / 下ボーダー 1px (#DDDDDD) / アクティブ項目: ブルーテキスト + 下線 2px / 高さ 60px</p>
+    </div>
+  </div>
+
+  <!-- 5. Section Heading -->
+  <p class="section-label">5 — Section Heading</p>
+  <div class="block">
+    <div class="headings-row">
+      <div class="section-heading-accent">
+        <span class="en">BUSINESS &amp; PRODUCTS</span>
+        <span class="ja">事業と製品・サービス</span>
+      </div>
+      <div class="section-heading-accent">
+        <span class="en">LATEST NEWS</span>
+        <span class="ja">最新情報</span>
+      </div>
+      <div class="section-heading-accent">
+        <span class="en">PICK UP</span>
+        <span class="ja">ピックアップ</span>
+      </div>
+    </div>
+    <p class="block-note">英語サブタイトル（11px / ブルー / ls:0.14em）+ 日本語見出し（1.25rem / Bold）+ 左ボーダー 4px #0077C8</p>
+  </div>
+
+  <!-- 6. News Card -->
+  <p class="section-label">6 — Card / News List</p>
+  <div class="block" style="padding:20px;">
+    <div class="news-card">
+      <div class="news-card-header">
+        <span class="news-date">2026/03/23</span>
+        <span class="tag">お知らせ</span>
+      </div>
+      <div class="news-title">当社社員3名がIBM Champion 2026に認定されました</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-header">
+        <span class="news-date">2026/03/02</span>
+        <span class="tag">プレスリリース</span>
+      </div>
+      <div class="news-title">イグアス、「IBM Bob」の活用を加速する新サービスを提供開始</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-header">
+        <span class="news-date">2025/10/14</span>
+        <span class="tag tag-gray">イベント・セミナー</span>
+      </div>
+      <div class="news-title">AIが拓くIRの未来 ― 海外投資家と企業をつなぐ新たな選択</div>
+    </div>
+    <p class="block-note" style="margin-top:12px;">カード: 白背景 / ボーダー 1px / 角丸 8px　日付（muted）+ タグ + タイトル（600）の3要素構成</p>
+  </div>
+
+  <!-- 7. CTA Block -->
+  <p class="section-label">7 — CTA Block</p>
+  <div class="block" style="padding:0; overflow:hidden;">
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="cta-title">パートナー契約をご検討の方へ</div>
+        <div class="cta-sub">取扱製品・サービスなどについてのご質問はこちらよりお問い合わせください。</div>
+      </div>
+      <button class="btn-cta">お問い合わせ</button>
+    </div>
+    <div style="background:var(--ig-surface-gray); padding:12px 20px; border-radius:0 0 10px 10px;">
+      <p style="font-size:11px; color:var(--ig-text-muted); letter-spacing:0.04em;">CTA: Primary ブルー背景 / 白テキスト / ピル型ボタン（border-radius: 100px）</p>
+    </div>
+  </div>
+
+  <!-- 8. Hero Mockup -->
+  <p class="section-label">8 — Hero Section</p>
+  <div class="block" style="padding:0; overflow:hidden;">
+    <div class="hero-area">
+      <div class="hero-label">IGUAZU — CREATE NEW VALUE</div>
+      <div class="hero-title">新たな価値創造に<br>チャレンジ</div>
+      <div class="hero-sub">IBMのVAD事業を基盤に、高度化・複雑化するIT市場を高い専門性とサポート機能で強力にナビゲートします。</div>
+    </div>
+    <div class="hero-sub-note">
+      <p>Primary グラデーション背景（#0055A0 → #0077C8 → #1AABF0）/ 白テキスト / ヒーローキャッチコピー</p>
+    </div>
+  </div>
+
+  <!-- 9. Spacing Scale -->
+  <p class="section-label">9 — Spacing Scale</p>
+  <div class="block">
+    <div class="spacing-row">
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:4px;"></div>
+        <div class="spacing-label">xs<br>4px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:8px;"></div>
+        <div class="spacing-label">sm<br>8px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:16px;"></div>
+        <div class="spacing-label">md<br>16px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:24px;"></div>
+        <div class="spacing-label">lg<br>24px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:40px;"></div>
+        <div class="spacing-label">xl<br>40px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:64px;"></div>
+        <div class="spacing-label">xxl<br>64px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:80px; background:rgba(0,119,200,0.3);"></div>
+        <div class="spacing-label">section<br>80px</div>
+      </div>
+    </div>
+    <p class="block-note">セクション間余白: 80px（PC）/ 48px（モバイル）　コンテンツ最大幅: 1200px</p>
+  </div>
+
+  <!-- Footer Note -->
+  <div class="footer-note">
+    <p>
+      このページは <strong>IGUAZU DESIGN.md</strong> のデザイントークンを可視化したリファレンスです。<br>
+      Claude Code・Cursor などの AI エージェントへの指示、社内資料（PowerPoint 等）のデザイン統一、Web 開発の共通参照として活用できます。<br>
+      <br>
+      ソースファイル: <strong>DESIGN.md</strong>　作成日: 2026-05-12
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
